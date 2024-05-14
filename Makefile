@@ -6,7 +6,7 @@
 #    By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/07 12:10:26 by bchedru           #+#    #+#              #
-#    Updated: 2024/04/18 15:28:57 by bchedru          ###   ########.fr        #
+#    Updated: 2024/05/14 17:42:32 by bchedru          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRC = $(addsuffix .c,$(FILES))
 OBJ = $(addsuffix .o,$(FILES))
 
 CC = cc
-CCFLAGS = -Wall -Wextra -Werror -O0 -g
+CCFLAGS = -Wall -Wextra -Werror -g
 
 all: $(NAME)
 
