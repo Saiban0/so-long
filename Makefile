@@ -6,12 +6,12 @@
 #    By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/07 12:10:26 by bchedru           #+#    #+#              #
-#    Updated: 2024/05/15 14:42:25 by bchedru          ###   ########.fr        #
+#    Updated: 2024/05/15 16:58:50 by bchedru          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
-FILES =	 main get_next_line get_next_line_utils
+FILES =	 main
 
 INC_FILES = -I libft
 INC_ARCHIVES = libft/libft.a
