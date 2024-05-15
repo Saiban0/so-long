@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:05:05 by bchedru           #+#    #+#             */
-/*   Updated: 2024/05/15 16:36:10 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/05/15 17:13:10 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	check_map_name(char *map_name)
 	{
 		if (map_name[i] != *ber++)
 		{
-			ft_printf("%s, %s\n", map_name[i], *ber);
 			ft_printf("Map not in .ber\n");
 			return (1);
 		}
