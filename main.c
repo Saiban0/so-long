@@ -6,31 +6,34 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:05:05 by bchedru           #+#    #+#             */
-/*   Updated: 2024/05/14 18:15:48 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/05/15 16:36:10 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	check_map_name(char	*map_name)
+int	check_map_name(char *map_name)
 {
-	int	i;
-	int len;
+	int		i;
+	int		len;
+	char	*ber;
 
 	i = 0;
-	len = ft_strlen(map_name) - 4;
+	len = ft_strlen(map_name) - 5;
+	ber = ".ber";
 	if (len < 5)
 		return (-1);
 	while (i < len)
 		i++;
-	if (map_name[i++] != '.')
-		return (1);
-	if (map_name[i++] != 'b')
-		return (1);
-	if (map_name[i++] != 'e')
-		return (1);
-	if (map_name[i++] != 'r')
-		return (1);
+	while (map_name[i++])
+	{
+		if (map_name[i] != *ber++)
+		{
+			ft_printf("%s, %s\n", map_name[i], *ber);
+			ft_printf("Map not in .ber\n");
+			return (1);
+		}
+	}
 	return (0);
 }
 
@@ -45,6 +48,7 @@ char	**parse_map(char *argv1)
 	file = open(argv1, O_RDONLY);
 	if (file == -1)
 		return (NULL);
+	*map = get_next_line(file);
 	while(map != NULL)
 	{
 		*map = get_next_line(file);
@@ -64,6 +68,11 @@ int	main(int argc, char **argv)
 	map = parse_map(argv[1]);
 	if (map == NULL)
 		return(1);
-	
+	else
+	{
+		ft_printf("oui\n");
+		while(*map++)
+			ft_printf("%s", *map);
+	}
 	return (0);
 }
