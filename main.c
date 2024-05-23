@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:05:05 by bchedru           #+#    #+#             */
-/*   Updated: 2024/05/23 15:14:30 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/05/23 16:33:18 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,18 @@ int	check_map_name(char *map_name)
 char	**parse_map(char *argv1)
 {
 	char	**map;
-	char	*temp;
 	int		file;
 
 	map = NULL;
-	temp = ft_strjoin("maps/", argv1);
 	if (check_map_name(argv1))
 		return (NULL);
-	file = open(temp, O_RDONLY);
-	free(temp);
+	file = open(argv1, O_RDONLY);
 	if (file == -1)
+	{
+		ft_printf("Map not found\n");
 		return (NULL);
-	*map = get_next_line(file);
+	}
+	map = get_next_line(file);
 	while(map != NULL)
 	{
 		*map = get_next_line(file);
