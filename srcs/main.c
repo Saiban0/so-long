@@ -6,61 +6,28 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:05:05 by bchedru           #+#    #+#             */
-/*   Updated: 2024/05/23 16:33:18 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/11 12:56:15 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/so_long.h"
-
-int	check_map_name(char *map_name)
-{
-	if (ft_strncmp(map_name + ft_strlen(map_name) - 4, ".ber", 4))
-	{
-		ft_printf("Map not in .ber\n");
-		return (1);
-	}
-	return (0);
-}
-
-char	**parse_map(char *argv1)
-{
-	char	**map;
-	int		file;
-
-	map = NULL;
-	if (check_map_name(argv1))
-		return (NULL);
-	file = open(argv1, O_RDONLY);
-	if (file == -1)
-	{
-		ft_printf("Map not found\n");
-		return (NULL);
-	}
-	map = get_next_line(file);
-	while(map != NULL)
-	{
-		*map = get_next_line(file);
-		map++;
-	}
-	close(file);
-	return (map);
-}
+#include "../includes/so_long.h"
 
 int	main(int argc, char **argv)
 {
-	char	**map;
+	t_so_long	*game;
 
-	map = NULL;
-	if (argc == 1)
-		return (1);
-	map = parse_map(argv[1]);
-	if (map == NULL)
-		return(1);
+	game = malloc(sizeof(t_so_long));
+	if (argc != 2)
+		safe_exit("Not enough/too much arguments", game);
+	check_path(argv[1], game);
+	open_file(game, argv[1]);
+	if (game->map_width > 15)
+		game->mlx_ptr = mlx_init((game->map_width + 1) * 32,
+				(game->map_height + 3) * 32, "OUI", true);
 	else
-	{
-		ft_printf("oui\n");
-		while(*map++)
-			ft_printf("%s", *map);
-	}
+		game->mlx_ptr = mlx_init((game->map_width + 5) * 32,
+				(game->map_height + 1) * 32, "OUI", true);
+	if (!game->mlx_ptr)
+		safe_exit("mlx_init crashed", game);
 	return (0);
 }

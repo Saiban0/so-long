@@ -6,27 +6,28 @@
 #    By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/07 12:10:26 by bchedru           #+#    #+#              #
-#    Updated: 2024/05/23 14:56:59 by bchedru          ###   ########.fr        #
+#    Updated: 2024/06/11 12:40:52 by bchedru          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
-FILES =	 main
+FILES =	 srcs/main srcs/parsing srcs/errors
 
 INC_FILES = -I libft
-INC_ARCHIVES = lib/libft/libft.a
+INC_ARCHIVES = lib/libft/libft.a lib/libmlx42.a
 
 SRC = $(addsuffix .c,$(FILES))
 OBJ = $(addsuffix .o,$(FILES))
 
 CC = cc
 CCFLAGS = -Wall -Wextra -Werror -g
+LFLAGS = -Llib -lmlx42 -ldl -lglfw3 -lXext -lX11 -lm -lpthread
 
 all: $(NAME)
 
 $(NAME) : $(OBJ)
 	make -C lib/libft/
-	$(CC) -o $@ $(OBJ) $(INC_ARCHIVES) $(CCFLAGS)
+	$(CC) -o $@ $(OBJ) $(INC_ARCHIVES) $(CCFLAGS) $(LFLAGS)
 
 %.o: %.c
 	$(CC) $(CCFLAGS) -c $< -o $@
