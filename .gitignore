@@ -5,5 +5,5 @@ libft.a
 .vscode/
 temp
 so_long
-libft
+lib/libft/
 MLX42
