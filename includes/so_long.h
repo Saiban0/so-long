@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:05:32 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/12 19:25:42 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/12 19:35:36 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,9 @@ void	textures_init(t_so_long *game);
 void	texture_placement(t_so_long *game);
 
 /*  Movements  */
+void	player_move_up(t_so_long *game);
+void	player_move_down(t_so_long *game);
+void	player_move_left(t_so_long *game);
+void	player_move_right(t_so_long *game);
 
 #endif
