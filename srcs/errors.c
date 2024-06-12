@@ -6,12 +6,11 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 12:12:16 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/11 12:22:49 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/12 18:22:41 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
-
+#include "so_long.h"
 
 void	safe_exit(char	*error_msg, t_so_long	*game)
 {
@@ -27,17 +26,18 @@ void	safe_exit(char	*error_msg, t_so_long	*game)
 		mlx_close_window(game->mlx_ptr);
 		mlx_terminate(game->mlx_ptr);
 	}
+	if (game)
+		free(game);
 	exit(0);
 }
 
-void	free_matrix(char **argv)
+void	free_matrix(char **matrix)
 {
 	int	i;
 
 	i = -1;
-	if (NULL == argv || NULL == *argv)
+	if (NULL == matrix || NULL == *matrix)
 		return ;
-	while (argv[i])
-		free(argv[i++]);
-	free(argv - 1);
+	while (matrix[++i])
+		free(matrix[i]);
 }
