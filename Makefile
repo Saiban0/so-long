@@ -6,12 +6,12 @@
 #    By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/07 12:10:26 by bchedru           #+#    #+#              #
-#    Updated: 2024/06/11 12:40:52 by bchedru          ###   ########.fr        #
+#    Updated: 2024/06/12 19:25:23 by bchedru          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
-FILES =	 srcs/main srcs/parsing srcs/errors
+FILES =	 srcs/main srcs/parsing srcs/errors srcs/init_image srcs/movements
 
 INC_FILES = -I libft
 INC_ARCHIVES = lib/libft/libft.a lib/libmlx42.a
@@ -20,8 +20,8 @@ SRC = $(addsuffix .c,$(FILES))
 OBJ = $(addsuffix .o,$(FILES))
 
 CC = cc
-CCFLAGS = -Wall -Wextra -Werror -g
-LFLAGS = -Llib -lmlx42 -ldl -lglfw3 -lXext -lX11 -lm -lpthread
+CCFLAGS = -Wall -Wextra -Werror -Iincludes -g
+LFLAGS = -Llib -lmlx42 -ldl -lglfw -lXext -lX11 -lm -lpthread
 
 all: $(NAME)
 
