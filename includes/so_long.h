@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:05:32 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/14 19:53:25 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/14 21:44:42 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ typedef struct s_so_long
 	mlx_image_t	*floor_image;
 }				t_so_long;
 
-# define SO_LONG_UNIT 32;
+# define SO_LONG_UNIT 32
 
 /*   Parsing   */
 void	check_path(char	*path, t_so_long *game);
@@ -59,6 +59,7 @@ void	free_matrix(char **matrix);
 
 /*  Images init  */
 void	textures_init(t_so_long *game);
+void	load_image(mlx_t *mlx, t_coord coord, mlx_image_t *image, bool enabled);
 void	images_placement(t_so_long *game);
 
 /*  Movements  */
