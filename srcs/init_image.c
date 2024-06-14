@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 18:21:00 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/14 20:18:52 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/14 21:40:20 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,27 @@ void	load_image(mlx_t *mlx, t_coord coord, mlx_image_t *image, bool enabled)
 	image->instances->enabled = enabled;
 }
 
+static void	select_image_load(t_so_long *game, t_coord coords)
+{
+	if (game->map[coords.x][coords.y] == 'P')
+	{
+		coords.z = 10;
+		load_image(game->mlx_ptr, coords, game->player_image, 1);
+		coords.z = 0;
+		load_image(game->mlx_ptr, coords, game->floor_image, 1);
+	}
+	if (game->map[coords.x][coords.y] == 'E')
+	{
+		coords.z = 5;
+		load_image(game->mlx_ptr, coords, game->exit_image, 1);
+	}
+	if (game->map[coords.x][coords.y] == 'C')
+	{
+		coords.z = 5;
+		load_image(game->mlx_ptr, coords, game->collectible_image, 1);
+	}
+}
+
 void	images_placement(t_so_long *game)
 {
 	t_coord	co;
@@ -53,28 +74,15 @@ void	images_placement(t_so_long *game)
 			if (game->map[co.x][co.y] == '1')
 			{
 				co.z = 5;
-				load_image(game->mlx_ptr, co,game->wall_image,1);
+				load_image(game->mlx_ptr, co, game->wall_image, 1);
 			}
 			if (game->map[co.x][co.y] == '0')
 			{
 				co.z = 0;
-				load_image(game->mlx_ptr, co,game->floor_image,1);
+				load_image(game->mlx_ptr, co, game->floor_image, 1);
 			}
-			if (game->map[co.x][co.y] == 'P')
-			{
-				co.z = 10;
-				load_image(game->mlx_ptr, co,game->player_image,1);
-			}
-			if (game->map[co.x][co.y] == 'E')
-			{
-				co.z = 5;
-				load_image(game->mlx_ptr, co,game->exit_image,1);
-			}
-			if (game->map[co.x][co.y] == 'C')
-			{
-				co.z = 5;
-				load_image(game->mlx_ptr, co,game->collectible_image,1);
-			}
+			else
+				select_image_load(game, co);
 			co.y++;
 		}
 		co.x++;
