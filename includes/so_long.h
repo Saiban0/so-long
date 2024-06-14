@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:05:32 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/13 18:53:56 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/14 19:53:25 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,21 @@
 # include "../lib/libft/libft.h"
 # include "MLX42.h"
 
+typedef struct s_coord
+{
+	int	x;
+	int	y;
+	int	z;
+}			t_coord;
+
 typedef struct s_so_long
 {
-	mlx_t	*mlx_ptr;
-	char	**map;
-	int		map_height;
-	int		map_width;
-	int		player_x;
-	int		player_y;
+	mlx_t		*mlx_ptr;
+	char		**map;
+	int			map_height;
+	int			map_width;
+	int			movement_count;
+	t_coord		player_coords;
 	mlx_image_t	*wall_image;
 	mlx_image_t	*player_image;
 	mlx_image_t	*exit_image;
@@ -62,5 +69,8 @@ void	player_move_right(t_so_long *game);
 
 /*  Game loop  */
 void	game_loop(t_so_long *game);
+
+/*  Debug   */
+void	print_map(t_so_long *game);
 
 #endif
