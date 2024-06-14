@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:05:05 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/14 17:04:33 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/14 21:47:45 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ int	main(int argc, char **argv)
 		safe_exit("Not enough/too much arguments", game);
 	check_path(argv[1], game);
 	open_file(game, argv[1]);
-	game->mlx_ptr = mlx_init((game->map_width + 1) * 32,
-			(game->map_height + 1) * 32, "jemlessaucisses", true);
+	game->mlx_ptr = mlx_init((game->map_width + 1) * SO_LONG_UNIT,
+			(game->map_height + 1) * SO_LONG_UNIT, "jemlessaucisses", true);
 	textures_init(game);
 	images_placement(game);
 	mlx_key_hook(game->mlx_ptr, &keyhook, game);

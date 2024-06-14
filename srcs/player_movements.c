@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 19:25:02 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/14 18:31:11 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/14 21:42:27 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	player_move_left(t_so_long *game)
 	if (is_valid_move(game, 0, -1) == 1)
 	{
 		game->map[game->player_coords.x][game->player_coords.y] = '0';
-		game->player_coords.y -=1;
+		game->player_coords.y -= 1;
 		game->map[game->player_coords.x][game->player_coords.y] = 'P';
 		game->player_image->instances->x -= SO_LONG_UNIT;
 	}
