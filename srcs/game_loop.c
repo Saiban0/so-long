@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 20:11:31 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/12 20:18:17 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/14 15:47:53 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 void	game_loop(t_so_long *game)
 {
-	texture_placement(game);
+	// images_placement(game);
+	(void)game;
 }
