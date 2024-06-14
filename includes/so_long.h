@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:05:32 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/14 21:44:42 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/14 22:05:59 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ typedef struct s_so_long
 	int			map_height;
 	int			map_width;
 	int			movement_count;
+	int			collectibles;
+	int			max_collectibles;
+	bool		collected_all;
 	t_coord		player_coords;
 	mlx_image_t	*wall_image;
 	mlx_image_t	*player_image;
@@ -52,6 +55,7 @@ int		check_length(char	*line, size_t width);
 int		parse(int depth, t_so_long *game, int fd);
 int		check_characters(t_so_long	*game);
 int		check_surrounded(t_so_long	*game);
+void	initialize_map_specific_variables(t_so_long *game);
 
 /*   Error Management   */
 void	safe_exit(char	*error_msg, t_so_long	*game);

@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:05:05 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/14 21:47:45 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/14 22:15:04 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int	main(int argc, char **argv)
 			(game->map_height + 1) * SO_LONG_UNIT, "jemlessaucisses", true);
 	textures_init(game);
 	images_placement(game);
+	initialize_map_specific_variables(game);
 	mlx_key_hook(game->mlx_ptr, &keyhook, game);
 	mlx_loop_hook(game->mlx_ptr, (void *)game_loop, game);
 	mlx_loop(game->mlx_ptr);
