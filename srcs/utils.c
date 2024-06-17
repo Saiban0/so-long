@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 19:09:20 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/17 18:49:21 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/17 19:57:16 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,15 +51,12 @@ void	open_file(t_so_long *game, char *map_path)
 		safe_exit("Map must have only one player and one exit", game);
 }
 
-void	initialize_starting_variables(t_so_long *game)
+static void	initialize_map_variables(t_so_long *game)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	game->max_collectibles = 0;
-	game->player_health = PLAYER_HEALTH;
-	game->ticks = 0;
 	while (game->map[i])
 	{
 		j = 0;
@@ -73,10 +70,21 @@ void	initialize_starting_variables(t_so_long *game)
 			}
 			if (game->map[i][j] == 'C')
 				game->max_collectibles++;
+			if (game->map[i][j] == 'M')
+				game->max_monsters++;
 			j++;
 		}
 		i++;
 	}
+}
+
+void	initialize_starting_variables(t_so_long *game)
+{
+	game->max_collectibles = 0;
+	game->player_health = PLAYER_HEALTH;
+	game->ticks = 0;
+	game->max_monsters = 0;
+	initialize_map_variables(game);
 }
 
 void	update_map(t_so_long *game, t_coord coords)
@@ -92,5 +100,5 @@ void	update_map(t_so_long *game, t_coord coords)
 		load_image(game->mlx_ptr, coords, game->floor_image, 1);
 	}
 	else
-		select_image_load(game, coords);
+		image_placement_bis(game, coords);
 }

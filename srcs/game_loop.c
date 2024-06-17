@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 20:11:31 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/17 18:31:33 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/17 20:17:16 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	game_loop(t_so_long *game)
 		game->collected_all = 1;
 	if (game->player_health < 1)
 		safe_exit("YOU DIED\n", game);
-	if (game->ticks % 60 == 0)
-		move_monsters(game, game->monster_array);
+	// if (game->ticks % 60 == 0)
+		// update_monster_array(game);
 	game->ticks++;
 }
 

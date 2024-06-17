@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 16:16:38 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/17 19:16:51 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/17 20:12:34 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,5 +112,29 @@ void	initialize_monster_array(t_so_long *game)
 			j++;
 		}
 		i++;
+	}
+}
+
+void	update_monster_array(t_so_long *game)
+{
+	int			i;
+	t_coord		old_coords;
+
+	i = -1;
+	while (++i < game->max_monsters)
+	{
+		old_coords = game->monster_array[i].coords;
+		if (ft_strcmp(game->monster_array[i].direction, "right"))
+			if (!ft_strchr("1EC", game->map[old_coords.y][old_coords.x + 1]))
+			{
+				game->monster_array[i].coords.x++;
+				update_map(game, game->monster_array[i].coords);
+			}
+		if (ft_strcmp(game->monster_array[i].direction, "left"))
+			if (!ft_strchr("1EC", game->map[old_coords.y][old_coords.x - 1]))
+			{
+				game->monster_array[i].coords.x++;
+				update_map(game, game->monster_array[i].coords);
+			}
 	}
 }

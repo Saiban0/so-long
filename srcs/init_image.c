@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 18:21:00 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/17 18:59:38 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/17 20:33:57 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	load_image(mlx_t *mlx, t_coord coord, mlx_image_t *image, bool enabled)
 	image->instances->enabled = enabled;
 }
 
-void	select_image_load(t_so_long *game, t_coord coords)
+void	image_placement_bis(t_so_long *game, t_coord coords)
 {
 	if (game->map[coords.x][coords.y] == 'P')
 	{
@@ -81,18 +81,20 @@ void	images_placement(t_so_long *game)
 		co.y = 0;
 		while (game->map[co.x][co.y])
 		{
+			co.z = 0;
+			load_image(game->mlx_ptr, co, game->floor_image, 1);
 			if (game->map[co.x][co.y] == '1')
 			{
 				co.z = 5;
 				load_image(game->mlx_ptr, co, game->wall_image, 1);
 			}
-			if (game->map[co.x][co.y] == '0')
-			{
-				co.z = 0;
-				load_image(game->mlx_ptr, co, game->floor_image, 1);
-			}
+			// if (game->map[co.x][co.y] == '0')
+			// {
+			// 	co.z = 0;
+			// 	load_image(game->mlx_ptr, co, game->floor_image, 1);
+			// }
 			else
-				select_image_load(game, co);
+				image_placement_bis(game, co);
 			co.y++;
 		}
 		co.x++;
