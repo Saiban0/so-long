@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 19:09:20 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/17 13:59:31 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/17 15:17:46 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,14 @@ void	open_file(t_so_long *game, char *map_path)
 		safe_exit("Map is not entirely surrounded by walls", game);
 }
 
-void	initialize_map_specific_variables(t_so_long *game)
+void	initialize_starting_variables(t_so_long *game)
 {
 	int	i;
 	int	j;
 
 	i = 0;
 	game->max_collectibles = 0;
+	game->player_health = PLAYER_HEALTH;
 	while (game->map[i])
 	{
 		j = 0;
