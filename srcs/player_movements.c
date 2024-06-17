@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 19:25:02 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/14 21:59:37 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/17 15:05:46 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@ void	player_move_up(t_so_long *game)
 	{
 		game->map[game->player_coords.x][game->player_coords.y] = '0';
 		game->player_coords.x -= 1;
+		if(game->map[game->player_coords.x][game->player_coords.y] == 'C')
+			collectible_collision(game);
+		if(game->map[game->player_coords.x][game->player_coords.y] == 'E')
+			safe_exit("You won!", game);
 		game->map[game->player_coords.x][game->player_coords.y] = 'P';
 		game->player_image->instances->y -= SO_LONG_UNIT;
 		game->movement_count++;
@@ -47,6 +51,10 @@ void	player_move_down(t_so_long *game)
 	{
 		game->map[game->player_coords.x][game->player_coords.y] = '0';
 		game->player_coords.x += 1;
+		if(game->map[game->player_coords.x][game->player_coords.y] == 'C')
+			collectible_collision(game);
+		if(game->map[game->player_coords.x][game->player_coords.y] == 'E')
+			safe_exit("You won!", game);
 		game->map[game->player_coords.x][game->player_coords.y] = 'P';
 		game->player_image->instances->y += SO_LONG_UNIT;
 		game->movement_count++;
@@ -60,6 +68,10 @@ void	player_move_left(t_so_long *game)
 	{
 		game->map[game->player_coords.x][game->player_coords.y] = '0';
 		game->player_coords.y -= 1;
+		if(game->map[game->player_coords.x][game->player_coords.y] == 'C')
+			collectible_collision(game);
+		if(game->map[game->player_coords.x][game->player_coords.y] == 'E')
+			safe_exit("You won!", game);
 		game->map[game->player_coords.x][game->player_coords.y] = 'P';
 		game->player_image->instances->x -= SO_LONG_UNIT;
 		game->movement_count++;
@@ -73,6 +85,10 @@ void	player_move_right(t_so_long *game)
 	{
 		game->map[game->player_coords.x][game->player_coords.y] = '0';
 		game->player_coords.y += 1;
+		if(game->map[game->player_coords.x][game->player_coords.y] == 'C')
+			collectible_collision(game);
+		if(game->map[game->player_coords.x][game->player_coords.y] == 'E')
+			safe_exit("You won!", game);
 		game->map[game->player_coords.x][game->player_coords.y] = 'P';
 		game->player_image->instances->x += SO_LONG_UNIT;
 		game->movement_count++;
