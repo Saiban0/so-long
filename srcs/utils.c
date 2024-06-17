@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 19:09:20 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/17 15:17:46 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/17 18:49:21 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ void	open_file(t_so_long *game, char *map_path)
 		safe_exit("Characters in map not defined", game);
 	if (check_surrounded(game) == 1)
 		safe_exit("Map is not entirely surrounded by walls", game);
+	if (check_special_character_occurences(game))
+		safe_exit("Map must have only one player and one exit", game);
 }
 
 void	initialize_starting_variables(t_so_long *game)
@@ -57,6 +59,7 @@ void	initialize_starting_variables(t_so_long *game)
 	i = 0;
 	game->max_collectibles = 0;
 	game->player_health = PLAYER_HEALTH;
+	game->ticks = 0;
 	while (game->map[i])
 	{
 		j = 0;
@@ -74,4 +77,20 @@ void	initialize_starting_variables(t_so_long *game)
 		}
 		i++;
 	}
+}
+
+void	update_map(t_so_long *game, t_coord coords)
+{
+	if (game->map[coords.x][coords.y] == '1')
+	{
+		coords.z = 5;
+		load_image(game->mlx_ptr, coords, game->wall_image, 1);
+	}
+	if (game->map[coords.x][coords.y] == '0')
+	{
+		coords.z = 0;
+		load_image(game->mlx_ptr, coords, game->floor_image, 1);
+	}
+	else
+		select_image_load(game, coords);
 }
