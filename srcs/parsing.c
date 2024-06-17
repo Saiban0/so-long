@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 12:05:17 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/14 19:14:42 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/14 22:16:16 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,6 @@ void	check_path(char	*path, t_so_long *game)
 {
 	if (ft_strncmp(path + (ft_strlen(path) - 4), ".ber", 4) != 0)
 		safe_exit("The map is not in .ber", game);
-}
-
-void	open_file(t_so_long *game, char *map_path)
-{
-	int	fd;
-
-	fd = open(map_path, O_RDONLY);
-	if (!fd)
-		safe_exit("File not found.", game);
-	if (parse(0, game, fd) == -1)
-		safe_exit("Map is not rectangular", game);
-	if (game->map_height < 4 && game->map_width < 4)
-		safe_exit("Map is too small.", game);
-	if (check_characters(game) == 1)
-		safe_exit("Characters in map not defined", game);
-	if (check_surrounded(game) == 1)
-		safe_exit("Map is not entirely surrounded by walls", game);
 }
 
 int	check_length(char	*line, size_t width)
@@ -81,12 +64,6 @@ int	check_characters(t_so_long	*game)
 		{
 			if (ft_strchr("10PCE\n", game->map[i][j]) == NULL)
 				return (1);
-			if (game->map[i][j] == 'P')
-			{
-				game->player_coords.x = i;
-				game->player_coords.y = j;
-				game->player_coords.z = 10;
-			}
 			j++;
 		}
 		i++;
