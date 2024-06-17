@@ -6,12 +6,12 @@
 #    By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/07 12:10:26 by bchedru           #+#    #+#              #
-#    Updated: 2024/06/14 19:09:56 by bchedru          ###   ########.fr        #
+#    Updated: 2024/06/17 18:45:26 by bchedru          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
-FILES =	 srcs/main srcs/parsing srcs/errors srcs/init_image srcs/player_movements srcs/game_loop srcs/utils
+FILES =	 srcs/main srcs/parsing srcs/parsing_bis srcs/errors srcs/init_image srcs/player_movements srcs/game_loop srcs/utils srcs/monsters
 
 INC_FILES = -I libft
 INC_ARCHIVES = lib/libft/libft.a lib/libmlx42.a
@@ -26,7 +26,7 @@ LFLAGS = -Llib -lmlx42 -ldl -lglfw -lXext -lX11 -lm -lpthread
 all: $(NAME)
 
 $(NAME) : $(OBJ)
-	make -C lib/libft/
+	make -C lib/libft/ bonus
 	$(CC) -o $@ $(OBJ) $(INC_ARCHIVES) $(CCFLAGS) $(LFLAGS)
 
 %.o: %.c
