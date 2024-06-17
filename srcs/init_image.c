@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 18:21:00 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/14 21:40:20 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/17 14:36:51 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,14 @@ void	textures_init(t_so_long *game)
 	mlx_delete_texture(temp);
 }
 
-void	load_image(mlx_t *mlx, t_coord coord, mlx_image_t *image, bool enabled)
+static void	load_image(mlx_t *mlx, t_coord coord, mlx_image_t *image, bool enabled)
 {
 	mlx_image_to_window(mlx, image, coord.y * 32, coord.x * 32);
 	mlx_set_instance_depth(&image->instances[image->count - 1], coord.z);
 	image->instances->enabled = enabled;
 }
 
-static void	select_image_load(t_so_long *game, t_coord coords)
+void	select_image_load(t_so_long *game, t_coord coords)
 {
 	if (game->map[coords.x][coords.y] == 'P')
 	{
