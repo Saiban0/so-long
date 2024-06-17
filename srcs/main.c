@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:05:05 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/17 15:17:02 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/17 16:35:29 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,5 @@ int	main(int argc, char **argv)
 	mlx_key_hook(game->mlx_ptr, &keyhook, game);
 	mlx_loop_hook(game->mlx_ptr, (void *)game_loop, game);
 	mlx_loop(game->mlx_ptr);
-	safe_exit("Clean exit\n", game);
 	return (0);
 }
