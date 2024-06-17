@@ -2,5 +2,5 @@
 	path = MLX42
 	url = https://github.com/codam-coding-college/MLX42
 [submodule "libft"]
-	path = libft
+	path = lib/libft
 	url = https://github.com/Saiban0/libft

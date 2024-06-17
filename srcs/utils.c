@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 19:09:20 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/14 22:13:00 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/17 13:59:31 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	initialize_map_specific_variables(t_so_long *game)
 
 	i = 0;
 	game->max_collectibles = 0;
-	while(game->map[i])
+	while (game->map[i])
 	{
 		j = 0;
 		while (game->map[i][j])
@@ -66,7 +66,6 @@ void	initialize_map_specific_variables(t_so_long *game)
 				game->player_coords.x = i;
 				game->player_coords.y = j;
 				game->player_coords.z = 10;
-				ft_printf("%d %d\n", game->player_coords.x, game->player_coords.y);
 			}
 			if (game->map[i][j] == 'C')
 				game->max_collectibles++;
