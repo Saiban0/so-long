@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:05:32 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/14 22:05:59 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/17 15:25:26 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct s_so_long
 	int			movement_count;
 	int			collectibles;
 	int			max_collectibles;
+	int			player_health;
 	bool		collected_all;
 	t_coord		player_coords;
 	mlx_image_t	*wall_image;
@@ -47,6 +48,7 @@ typedef struct s_so_long
 }				t_so_long;
 
 # define SO_LONG_UNIT 32
+# define PLAYER_HEALTH 5
 
 /*   Parsing   */
 void	check_path(char	*path, t_so_long *game);
@@ -55,7 +57,7 @@ int		check_length(char	*line, size_t width);
 int		parse(int depth, t_so_long *game, int fd);
 int		check_characters(t_so_long	*game);
 int		check_surrounded(t_so_long	*game);
-void	initialize_map_specific_variables(t_so_long *game);
+void	initialize_starting_variables(t_so_long *game);
 
 /*   Error Management   */
 void	safe_exit(char	*error_msg, t_so_long	*game);
@@ -63,7 +65,7 @@ void	free_matrix(char **matrix);
 
 /*  Images init  */
 void	textures_init(t_so_long *game);
-void	load_image(mlx_t *mlx, t_coord coord, mlx_image_t *image, bool enabled);
+void	select_image_load(t_so_long *game, t_coord coords);
 void	images_placement(t_so_long *game);
 
 /*  Movements  */
@@ -77,5 +79,6 @@ void	game_loop(t_so_long *game);
 
 /*  Debug   */
 void	print_map(t_so_long *game);
+void	collectible_collision(t_so_long *game);
 
 #endif
