@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 12:05:17 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/14 22:16:16 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/17 16:04:22 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	check_characters(t_so_long	*game)
 		j = 0;
 		while (game->map[i][j])
 		{
-			if (ft_strchr("10PCE\n", game->map[i][j]) == NULL)
+			if (ft_strchr("10PCEM\n", game->map[i][j]) == NULL)
 				return (1);
 			j++;
 		}
