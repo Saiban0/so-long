@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 12:12:16 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/12 18:22:41 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/17 18:26:17 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	safe_exit(char	*error_msg, t_so_long	*game)
 		free_matrix(game->map);
 		free(game->map);
 	}
+	if (game->monster_array)
+		free(game->monster_array);
 	if (game->mlx_ptr)
 	{
 		mlx_close_window(game->mlx_ptr);
