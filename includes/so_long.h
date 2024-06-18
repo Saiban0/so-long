@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:05:32 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/18 15:58:12 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/18 16:55:01 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,9 +89,9 @@ void	player_move_left(t_so_long *game);
 void	player_move_right(t_so_long *game);
 
 /*  Monsters  */
+t_monster	*create_new_monster(t_coord coords, int id);
 void	move_monsters(t_so_long *game, t_monster **array);
 void	initialize_monster_array(t_so_long *game);
-void	update_monster_array(t_so_long *game);
 
 /*  Game loop  */
 void	game_loop(t_so_long *game);

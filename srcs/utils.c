@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 19:09:20 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/18 15:13:48 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/18 16:57:09 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,18 +89,28 @@ void	initialize_starting_variables(t_so_long *game)
 		initialize_monster_array(game);
 }
 
-void	update_map(t_so_long *game, t_coord coords)
+void	initialize_monster_array(t_so_long *game)
 {
-	if (game->map[coords.x][coords.y] == '1')
+	int		cpt;
+	t_coord	temp;
+
+	temp.x = 0;
+	cpt = 0;
+	game->monster_array = malloc(game->max_monsters * sizeof(t_monster *));
+	if (!game->monster_array)
+		return ;
+	while (game->map[temp.x])
 	{
-		coords.z = 5;
-		load_image(game->mlx_ptr, coords, game->wall_image, 1);
+		temp.y = 0;
+		while (game->map[temp.x][temp.y])
+		{
+			temp.y++;
+			if (game->map[temp.x][temp.y] == 'M')
+			{
+				game->monster_array[cpt] = create_new_monster(temp, cpt);
+				cpt++;
+			}
+		}
+		temp.x++;
 	}
-	if (game->map[coords.x][coords.y] == '0')
-	{
-		coords.z = 0;
-		load_image(game->mlx_ptr, coords, game->floor_image, 1);
-	}
-	else
-		image_placement_bis(game, coords);
 }

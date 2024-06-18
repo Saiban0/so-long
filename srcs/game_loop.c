@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 20:11:31 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/18 15:12:00 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/18 16:56:48 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	collectible_collision(t_so_long *game)
 {
 	t_coord	temp;
 
-	if(game->map[game->player_coords.x][game->player_coords.y] == 'C')
+	if (game->map[game->player_coords.x][game->player_coords.y] == 'C')
 	{
 		temp.x = game->player_coords.x;
 		temp.y = game->player_coords.y;

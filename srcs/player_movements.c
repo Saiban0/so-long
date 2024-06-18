@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 19:25:02 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/17 18:29:56 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/18 16:56:15 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	player_move_up(t_so_long *game)
 	if (is_valid_move(game, -1, 0) == 1)
 	{
 		game->player_coords.x -= 1;
-		if(game->map[game->player_coords.x][game->player_coords.y] == 'E')
+		if (game->map[game->player_coords.x][game->player_coords.y] == 'E')
 			safe_exit("You won!", game);
 		game->player_image->instances->y -= SO_LONG_UNIT;
 		game->movement_count++;
@@ -52,7 +52,7 @@ void	player_move_down(t_so_long *game)
 	if (is_valid_move(game, 1, 0) == 1)
 	{
 		game->player_coords.x += 1;
-		if(game->map[game->player_coords.x][game->player_coords.y] == 'E')
+		if (game->map[game->player_coords.x][game->player_coords.y] == 'E')
 			safe_exit("You won!", game);
 		game->player_image->instances->y += SO_LONG_UNIT;
 		game->movement_count++;
@@ -65,7 +65,7 @@ void	player_move_left(t_so_long *game)
 	if (is_valid_move(game, 0, -1) == 1)
 	{
 		game->player_coords.y -= 1;
-		if(game->map[game->player_coords.x][game->player_coords.y] == 'E')
+		if (game->map[game->player_coords.x][game->player_coords.y] == 'E')
 			safe_exit("You won!", game);
 		game->player_image->instances->x -= SO_LONG_UNIT;
 		game->movement_count++;
@@ -78,7 +78,7 @@ void	player_move_right(t_so_long *game)
 	if (is_valid_move(game, 0, 1) == 1)
 	{
 		game->player_coords.y += 1;
-		if(game->map[game->player_coords.x][game->player_coords.y] == 'E')
+		if (game->map[game->player_coords.x][game->player_coords.y] == 'E')
 			safe_exit("You won!", game);
 		game->player_image->instances->x += SO_LONG_UNIT;
 		game->movement_count++;

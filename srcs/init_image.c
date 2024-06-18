@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 18:21:00 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/17 20:33:57 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/18 16:56:32 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,11 +88,6 @@ void	images_placement(t_so_long *game)
 				co.z = 5;
 				load_image(game->mlx_ptr, co, game->wall_image, 1);
 			}
-			// if (game->map[co.x][co.y] == '0')
-			// {
-			// 	co.z = 0;
-			// 	load_image(game->mlx_ptr, co, game->floor_image, 1);
-			// }
 			else
 				image_placement_bis(game, co);
 			co.y++;
