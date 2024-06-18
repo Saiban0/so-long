@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 19:25:02 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/18 18:39:07 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/18 18:59:55 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ static	int	is_valid_move(t_so_long *game, int mvt_x, int mvt_y)
 	if (game->map[new_x][new_y] == 'M')
 	{
 		game->player_health--;
+		display_lives(game);
 		return (0);
 	}
 	return (1);

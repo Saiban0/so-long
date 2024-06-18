@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:05:32 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/18 18:24:11 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/18 18:59:45 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ typedef struct s_so_long
 	mlx_image_t			*floor_image;
 	mlx_image_t			*monster_image;
 	mlx_image_t			*moves_str;
+	mlx_image_t			*lives_str;
 	unsigned long long	ticks;
 }				t_so_long;
 
@@ -81,6 +82,7 @@ void	load_image(mlx_t *mlx, t_coord coord, mlx_image_t *image, bool enabled);
 void	image_placement_bis(t_so_long *game, t_coord coords);
 void	images_placement(t_so_long *game);
 void	display_movement(t_so_long *game);
+void	display_lives(t_so_long *game);
 
 /*  Player movements  */
 void	player_move_up(t_so_long *game);
