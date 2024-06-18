@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 19:09:20 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/18 17:24:27 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/18 19:01:14 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,8 @@ void	initialize_starting_variables(t_so_long *game)
 	game->player_health = PLAYER_HEALTH;
 	game->ticks = 0;
 	game->max_monsters = 0;
+	display_movement(game);
+	display_lives(game);
 	initialize_map_variables(game);
 	if (game->max_monsters)
 		initialize_monster_array(game);
