@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:05:32 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/18 19:32:52 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/18 20:28:18 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,45 +65,45 @@ typedef struct s_so_long
 # define PLAYER_HEALTH 5
 
 /*   Parsing   */
-void	check_path(char	*path, t_so_long *game);
-void	open_file(t_so_long *game, char *map_path);
-int		check_length(char	*line, size_t width);
-int		parse(int depth, t_so_long *game, int fd);
-int		check_characters(t_so_long	*game);
-int		check_surrounded(t_so_long	*game);
-int		check_special_character_occurences(t_so_long *game);
-void	initialize_starting_variables(t_so_long *game);
+void		check_path(char	*path, t_so_long *game);
+void		open_file(t_so_long *game, char *map_path);
+int			check_length(char	*line, size_t width);
+int			parse(int depth, t_so_long *game, int fd);
+int			check_characters(t_so_long	*game);
+int			check_surrounded(t_so_long	*game);
+int			check_special_character_occurences(t_so_long *game);
+void		initialize_starting_variables(t_so_long *game);
 
 /*   Error Management   */
-void	safe_exit(char	*error_msg, t_so_long	*game);
+void		safe_exit(char	*error_msg, t_so_long	*game);
 
 /*  Images init  */
-void	textures_init(t_so_long *game);
-void	load_image(mlx_t *mlx, t_coord coord, mlx_image_t *image, bool enabled);
-void	image_placement_bis(t_so_long *game, t_coord coords);
-void	images_placement(t_so_long *game);
-void	display_movement(t_so_long *game);
-void	display_lives(t_so_long *game);
+void		textures_init(t_so_long *game);
+void		load_image(mlx_t *mlx, t_coord coord, mlx_image_t *image,
+				bool enabled);
+void		image_placement_bis(t_so_long *game, t_coord coords);
+void		images_placement(t_so_long *game);
+void		display_movement(t_so_long *game);
+void		display_lives(t_so_long *game);
 
 /*  Player movements  */
-void	player_move_up(t_so_long *game);
-void	player_move_down(t_so_long *game);
-void	player_move_left(t_so_long *game);
-void	player_move_right(t_so_long *game);
+void		player_move_up(t_so_long *game);
+void		player_move_down(t_so_long *game);
+void		player_move_left(t_so_long *game);
+void		player_move_right(t_so_long *game);
 
 /*  Monsters  */
 t_monster	*create_new_monster(t_coord coords, int id);
-void	move_monsters(t_so_long *game, t_monster **array);
-void	initialize_monster_array(t_so_long *game);
-void	kill_monster(t_so_long *game, t_coord coords);
+void		move_monsters(t_so_long *game, t_monster **array);
+void		initialize_monster_array(t_so_long *game);
+void		kill_monster(t_so_long *game, t_coord coords);
 
 /*  Game loop  */
-void	game_loop(t_so_long *game);
+void		game_loop(t_so_long *game);
 
 /*  Utils   */
-void	print_map(t_so_long *game);
-void	collectible_collision(t_so_long *game);
-void	update_map(t_so_long *game, t_coord coords);
-
+void		print_map(t_so_long *game);
+void		collectible_collision(t_so_long *game);
+void		update_map(t_so_long *game, t_coord coords);
 
 #endif

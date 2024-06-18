@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 20:11:31 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/18 20:16:17 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/18 20:25:32 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static int	get_monster_id(t_so_long *game, t_coord coords)
 			if (game->map[i][j] == 'M')
 			{
 				if (i == coords.x && j == coords.y)
-					return(cpt);
+					return (cpt);
 				cpt++;
 			}
 			j++;
