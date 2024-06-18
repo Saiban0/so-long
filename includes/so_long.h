@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:05:32 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/18 16:55:01 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/18 17:22:26 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,6 @@ void	initialize_starting_variables(t_so_long *game);
 
 /*   Error Management   */
 void	safe_exit(char	*error_msg, t_so_long	*game);
-void	free_matrix(char **matrix);
-void	free_monster_array(t_monster **matrix);
 
 /*  Images init  */
 void	textures_init(t_so_long *game);
