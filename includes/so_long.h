@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:05:32 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/18 18:59:45 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/18 19:32:52 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_monster
 	t_coord		coords;
 	char		*direction;
 	int			id;
+	bool		alive;
 }			t_monster;
 
 typedef struct s_so_long
@@ -94,6 +95,7 @@ void	player_move_right(t_so_long *game);
 t_monster	*create_new_monster(t_coord coords, int id);
 void	move_monsters(t_so_long *game, t_monster **array);
 void	initialize_monster_array(t_so_long *game);
+void	kill_monster(t_so_long *game, t_coord coords);
 
 /*  Game loop  */
 void	game_loop(t_so_long *game);

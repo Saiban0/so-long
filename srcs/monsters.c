@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 16:16:38 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/18 16:54:48 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/18 20:17:28 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static int	is_valid_move(t_so_long *game, t_monster monster, int mvt_y)
 	int	new_y;
 
 	new_y = monster.coords.y + mvt_y;
+	if (monster.alive == 0)
+		return (0);
 	if (ft_strchr("1CEM", game->map[monster.coords.x][new_y]))
 		return (0);
 	if (monster.coords.x == game->player_coords.x
@@ -79,5 +81,6 @@ t_monster	*create_new_monster(t_coord coords, int id)
 	new->coords = coords;
 	new->direction = "left";
 	new->id = id;
+	new->alive = 1;
 	return (new);
 }

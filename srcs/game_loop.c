@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 20:11:31 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/18 16:56:48 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/18 20:16:17 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,42 @@ void	collectible_collision(t_so_long *game)
 		load_image(game->mlx_ptr, temp, game->floor_image, 1);
 		game->collectibles++;
 	}
+}
+
+static int	get_monster_id(t_so_long *game, t_coord coords)
+{
+	int	i;
+	int	j;
+	int	cpt;
+
+	i = 0;
+	cpt = 0;
+	while (game->map[i])
+	{
+		j = 0;
+		while (game->map[i][j])
+		{
+			if (game->map[i][j] == 'M')
+			{
+				if (i == coords.x && j == coords.y)
+					return(cpt);
+				cpt++;
+			}
+			j++;
+		}
+		i++;
+	}
+	return (-1);
+}
+
+void	kill_monster(t_so_long *game, t_coord coords)
+{
+	int	id;
+
+	id = get_monster_id(game, coords);
+	if (id == -1)
+		safe_exit("Monster deletion failed", game);
+	game->map[coords.x][coords.y] = '0';
+	game->monster_array[id]->alive = 0;
+	(&game->monster_image->instances[id])->enabled = 0;
 }
