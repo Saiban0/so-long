@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 19:25:02 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/18 16:56:15 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/18 18:39:07 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ static	int	is_valid_move(t_so_long *game, int mvt_x, int mvt_y)
 	if (game->map[new_x][new_y] == 'M')
 	{
 		game->player_health--;
-		ft_printf("You got damaged, new health = %d\n", game->player_health);
 		return (0);
 	}
 	return (1);
@@ -43,7 +42,7 @@ void	player_move_up(t_so_long *game)
 			safe_exit("You won!", game);
 		game->player_image->instances->y -= SO_LONG_UNIT;
 		game->movement_count++;
-		ft_printf("Movements = %d\n", game->movement_count);
+		display_movement(game);
 	}
 }
 
@@ -56,7 +55,7 @@ void	player_move_down(t_so_long *game)
 			safe_exit("You won!", game);
 		game->player_image->instances->y += SO_LONG_UNIT;
 		game->movement_count++;
-		ft_printf("Movements = %d\n", game->movement_count);
+		display_movement(game);
 	}
 }
 
@@ -69,7 +68,7 @@ void	player_move_left(t_so_long *game)
 			safe_exit("You won!", game);
 		game->player_image->instances->x -= SO_LONG_UNIT;
 		game->movement_count++;
-		ft_printf("Movements = %d\n", game->movement_count);
+		display_movement(game);
 	}
 }
 
@@ -82,6 +81,6 @@ void	player_move_right(t_so_long *game)
 			safe_exit("You won!", game);
 		game->player_image->instances->x += SO_LONG_UNIT;
 		game->movement_count++;
-		ft_printf("Movements = %d\n", game->movement_count);
+		display_movement(game);
 	}
 }
