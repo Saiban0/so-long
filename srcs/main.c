@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:05:05 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/17 16:35:29 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/18 15:12:19 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ static void	keyhook(mlx_key_data_t keydata, void *param)
 	game = (t_so_long *)param;
 	if (mlx_is_key_down(game->mlx_ptr, MLX_KEY_W))
 		player_move_up(game);
-	if (mlx_is_key_down(game->mlx_ptr, MLX_KEY_S))
-		player_move_down(game);
 	if (mlx_is_key_down(game->mlx_ptr, MLX_KEY_A))
 		player_move_left(game);
+	if (mlx_is_key_down(game->mlx_ptr, MLX_KEY_S))
+		player_move_down(game);
 	if (mlx_is_key_down(game->mlx_ptr, MLX_KEY_D))
 		player_move_right(game);
 	if (mlx_is_key_down(game->mlx_ptr, MLX_KEY_ESCAPE))
