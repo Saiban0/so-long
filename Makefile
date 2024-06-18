@@ -6,7 +6,7 @@
 #    By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/07 12:10:26 by bchedru           #+#    #+#              #
-#    Updated: 2024/06/17 18:45:26 by bchedru          ###   ########.fr        #
+#    Updated: 2024/06/18 15:05:06 by bchedru          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ LFLAGS = -Llib -lmlx42 -ldl -lglfw -lXext -lX11 -lm -lpthread
 all: $(NAME)
 
 $(NAME) : $(OBJ)
+	make -C lib/libft/
 	make -C lib/libft/ bonus
 	$(CC) -o $@ $(OBJ) $(INC_ARCHIVES) $(CCFLAGS) $(LFLAGS)
 
