@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:05:32 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/17 20:14:27 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/18 15:58:12 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_monster
 {
 	t_coord		coords;
 	char		*direction;
+	int			id;
 }			t_monster;
 
 typedef struct s_so_long
@@ -47,7 +48,7 @@ typedef struct s_so_long
 	int					max_monsters;
 	bool				collected_all;
 	t_coord				player_coords;
-	t_monster			*monster_array;
+	t_monster			**monster_array;
 	mlx_image_t			*wall_image;
 	mlx_image_t			*player_image;
 	mlx_image_t			*exit_image;
@@ -73,6 +74,7 @@ void	initialize_starting_variables(t_so_long *game);
 /*   Error Management   */
 void	safe_exit(char	*error_msg, t_so_long	*game);
 void	free_matrix(char **matrix);
+void	free_monster_array(t_monster **matrix);
 
 /*  Images init  */
 void	textures_init(t_so_long *game);
@@ -87,7 +89,7 @@ void	player_move_left(t_so_long *game);
 void	player_move_right(t_so_long *game);
 
 /*  Monsters  */
-void	move_monsters(t_so_long *game, t_monster *array);
+void	move_monsters(t_so_long *game, t_monster **array);
 void	initialize_monster_array(t_so_long *game);
 void	update_monster_array(t_so_long *game);
 
