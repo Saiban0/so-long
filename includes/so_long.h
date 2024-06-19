@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:05:32 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/19 18:58:12 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/19 19:02:34 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ typedef struct s_so_long
 	mlx_image_t				*collectible_image;
 	mlx_image_t				*floor_image;
 	// t_monster_image			monster_image;
-	mlx_image_t				monster_image;
+	mlx_image_t				*monster_image;
 	mlx_image_t				*moves_str;
 	mlx_image_t				*lives_str;
 	unsigned long long		ticks;
