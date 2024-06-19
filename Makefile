@@ -6,12 +6,12 @@
 #    By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/07 12:10:26 by bchedru           #+#    #+#              #
-#    Updated: 2024/06/18 17:52:13 by bchedru          ###   ########.fr        #
+#    Updated: 2024/06/19 18:31:27 by bchedru          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
-FILES =	 srcs/main srcs/parsing srcs/parsing_bis srcs/errors srcs/init_image srcs/player_movements srcs/game_loop srcs/utils srcs/monsters srcs/display_text
+FILES =	 srcs/main srcs/parsing srcs/parsing_bis srcs/errors srcs/init_image srcs/init_image_bis srcs/player_movements srcs/game_loop srcs/utils srcs/monsters srcs/display_text
 
 INC_FILES = -I libft
 INC_ARCHIVES = lib/libft/libft.a lib/libmlx42.a
