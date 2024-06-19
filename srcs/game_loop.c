@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 20:11:31 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/18 20:25:32 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/19 18:59:49 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	collectible_collision(t_so_long *game)
 
 	if (game->map[game->player_coords.x][game->player_coords.y] == 'C')
 	{
+		game->map[game->player_coords.x][game->player_coords.y] = '0';
 		temp.x = game->player_coords.x;
 		temp.y = game->player_coords.y;
 		temp.z = 6;
@@ -73,5 +74,6 @@ void	kill_monster(t_so_long *game, t_coord coords)
 		safe_exit("Monster deletion failed", game);
 	game->map[coords.x][coords.y] = '0';
 	game->monster_array[id]->alive = 0;
-	(&game->monster_image->instances[id])->enabled = 0;
+	// (&game->monster_image.round->instances[id])->enabled = 0;
+	// (&game->monster_image.square->instances[id])->enabled = 0;
 }
