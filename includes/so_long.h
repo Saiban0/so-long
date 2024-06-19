@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:05:32 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/18 20:28:18 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/19 18:58:12 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,29 +36,36 @@ typedef struct s_monster
 	bool		alive;
 }			t_monster;
 
+typedef struct s_monster_image
+{
+	mlx_image_t	*square;
+	mlx_image_t	*round;
+}				t_monster_image;
+
 typedef struct s_so_long
 {
-	mlx_t				*mlx_ptr;
-	char				**map;
-	int					map_height;
-	int					map_width;
-	int					movement_count;
-	int					collectibles;
-	int					max_collectibles;
-	int					player_health;
-	int					max_monsters;
-	bool				collected_all;
-	t_coord				player_coords;
-	t_monster			**monster_array;
-	mlx_image_t			*wall_image;
-	mlx_image_t			*player_image;
-	mlx_image_t			*exit_image;
-	mlx_image_t			*collectible_image;
-	mlx_image_t			*floor_image;
-	mlx_image_t			*monster_image;
-	mlx_image_t			*moves_str;
-	mlx_image_t			*lives_str;
-	unsigned long long	ticks;
+	mlx_t					*mlx_ptr;
+	char					**map;
+	int						map_height;
+	int						map_width;
+	int						movement_count;
+	int						collectibles;
+	int						max_collectibles;
+	int						player_health;
+	int						max_monsters;
+	bool					collected_all;
+	t_coord					player_coords;
+	t_monster				**monster_array;
+	mlx_image_t				*wall_image;
+	mlx_image_t				*player_image;
+	mlx_image_t				*exit_image;
+	mlx_image_t				*collectible_image;
+	mlx_image_t				*floor_image;
+	// t_monster_image			monster_image;
+	mlx_image_t				monster_image;
+	mlx_image_t				*moves_str;
+	mlx_image_t				*lives_str;
+	unsigned long long		ticks;
 }				t_so_long;
 
 # define SO_LONG_UNIT 32
@@ -95,7 +102,8 @@ void		player_move_right(t_so_long *game);
 /*  Monsters  */
 t_monster	*create_new_monster(t_coord coords, int id);
 void		move_monsters(t_so_long *game, t_monster **array);
-void		initialize_monster_array(t_so_long *game);
+void		switch_square_monster_to_round(t_so_long *game, int i);
+void		switch_round_monster_to_square(t_so_long *game, int i);
 void		kill_monster(t_so_long *game, t_coord coords);
 
 /*  Game loop  */
