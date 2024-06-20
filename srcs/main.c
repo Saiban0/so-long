@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:05:05 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/20 21:26:05 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/20 21:49:19 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,12 @@ int	main(int argc, char **argv)
 {
 	t_so_long	*game;
 
-	if (argc != 2) {
+	if (argc != 2)
+	{
 		ft_putstr_fd("Not enough/too much arguments\n", 2);
-		return 1;
+		return (1);
 	}
 	game = malloc(sizeof(t_so_long));
-	if (!game)
-		return (0);
 	game->map = NULL;
 	game->monster_array = NULL;
 	game->mlx_ptr = NULL;
