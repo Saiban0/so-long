@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 12:05:17 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/20 19:54:18 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/20 20:32:18 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	parse(int depth, t_so_long *game, int fd)
 		return (0);
 	}
 	if (depth == 0)
-		game->map_width = ft_strlen(line) - 1;
+		game->map_width = ft_strlen(line);
 	else if (!check_length(line, game->map_width))
 		return (free(line), -1);
 	if (parse(depth + 1, game, fd) == -1)
