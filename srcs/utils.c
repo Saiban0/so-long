@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 19:09:20 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/20 18:20:33 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/20 20:19:12 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,8 @@ void	initialize_starting_variables(t_so_long *game)
 	game->collectibles = 0;
 	game->ticks = 0;
 	game->max_monsters = 0;
+	game->moves_str = mlx_put_string(game->mlx_ptr, " ", -10, -10);
+	game->lives_str = mlx_put_string(game->mlx_ptr, " ", -10, -10);
 	display_movement(game);
 	display_lives(game);
 	initialize_map_variables(game);
