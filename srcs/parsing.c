@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 12:05:17 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/20 16:53:38 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/20 19:54:18 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,18 +76,15 @@ int	check_surrounded(t_so_long	*game)
 	int	i;
 	int	j;
 
-	i = 0;
-	while (game->map[i])
+	i = -1;
+	while (game->map[++i])
 	{
 		if (i == 0 || i == game->map_height - 1)
 		{
-			j = 0;
-			while (game->map[i][j])
-			{
+			j = -1;
+			while (game->map[i][++j])
 				if (game->map[i][j] != '1')
 					return (1);
-				j++;
-			}
 		}
 		else
 		{
@@ -95,7 +92,6 @@ int	check_surrounded(t_so_long	*game)
 				game->map[i][game->map_width - 1] != '1')
 				return (1);
 		}
-		i++;
 	}
 	return (0);
 }
