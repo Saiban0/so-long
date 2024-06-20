@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 20:11:31 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/20 17:17:03 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/20 18:36:21 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,24 +42,13 @@ void	collectible_collision(t_so_long *game)
 int	get_monster_id(t_so_long *game, t_coord coords)
 {
 	int	i;
-	int	j;
-	int	cpt;
 
 	i = 0;
-	cpt = 0;
-	while (game->map[i])
+	while (game->monster_array[i])
 	{
-		j = 0;
-		while (game->map[i][j])
-		{
-			if (game->map[i][j] == 'M')
-			{
-				if (i == coords.x && j == coords.y)
-					return (cpt);
-				cpt++;
-			}
-			j++;
-		}
+		if (game->monster_array[i]->coords.x == coords.x
+				&& game->monster_array[i]->coords.y == coords.y)
+				return (i);
 		i++;
 	}
 	return (-1);
