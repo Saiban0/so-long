@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:05:32 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/20 17:37:53 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/20 22:23:36 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ void		post_pathway(char	**map, t_so_long *game);
 
 /*   Error Management   */
 void		safe_exit(char	*error_msg, t_so_long	*game);
+void		close_hook(t_so_long *game);
 
 /*  Images init  */
 void		textures_init(t_so_long *game);

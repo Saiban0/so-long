@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 18:29:21 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/20 15:33:06 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/20 22:23:56 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,9 @@ void	switch_round_monster_to_square(t_so_long *game, int i)
 {
 	(&game->monster_image.round->instances[i])->enabled = 0;
 	(&game->monster_image.square->instances[i])->enabled = 1;
+}
+
+void	close_hook(t_so_long *game)
+{
+	safe_exit("Clean exit\n", game);
 }

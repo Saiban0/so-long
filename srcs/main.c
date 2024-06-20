@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:05:05 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/20 21:49:19 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/20 22:45:32 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	main(int argc, char **argv)
 	game->mlx_ptr = NULL;
 	check_map_path(argv[1], game);
 	open_file(game, argv[1]);
-	game->mlx_ptr = mlx_init((game->map_width) * SO_LONG_UNIT,
+	game->mlx_ptr = mlx_init((game->map_width - 1) * SO_LONG_UNIT,
 			(game->map_height) * SO_LONG_UNIT, "So-long", true);
 	textures_init(game);
 	images_placement(game);
@@ -56,6 +56,7 @@ int	main(int argc, char **argv)
 	post_pathway(game->map, game);
 	mlx_key_hook(game->mlx_ptr, &keyhook, game);
 	mlx_loop_hook(game->mlx_ptr, (void *)game_loop, game);
+	mlx_close_hook(game->mlx_ptr, (void *)close_hook, game);
 	mlx_loop(game->mlx_ptr);
 	return (0);
 }
