@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:05:05 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/20 15:34:59 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/20 17:15:21 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,15 @@ int	main(int argc, char **argv)
 		return (0);
 	if (argc != 2)
 		safe_exit("Not enough/too much arguments", game);
-	check_path(argv[1], game);
+	check_map_path(argv[1], game);
 	open_file(game, argv[1]);
 	game->mlx_ptr = mlx_init((game->map_width + 1) * SO_LONG_UNIT,
 			(game->map_height + 1) * SO_LONG_UNIT, "So-long", true);
 	textures_init(game);
 	images_placement(game);
 	initialize_starting_variables(game);
+	map_pathway(game->map, game->player_coords.x, game->player_coords.y);
+	post_pathway(game->map, game);
 	mlx_key_hook(game->mlx_ptr, &keyhook, game);
 	mlx_loop_hook(game->mlx_ptr, (void *)game_loop, game);
 	mlx_loop(game->mlx_ptr);

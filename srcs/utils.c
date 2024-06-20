@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 19:09:20 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/20 15:40:39 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/20 17:36:54 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ static void	initialize_monster_array(t_so_long *game)
 		temp.x++;
 	}
 }
+
 void	initialize_starting_variables(t_so_long *game)
 {
 	game->movement_count = 0;
@@ -119,4 +120,3 @@ void	initialize_starting_variables(t_so_long *game)
 	if (game->max_monsters)
 		initialize_monster_array(game);
 }
-

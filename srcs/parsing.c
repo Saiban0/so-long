@@ -6,13 +6,13 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 12:05:17 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/17 16:04:22 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/20 16:53:38 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	check_path(char	*path, t_so_long *game)
+void	check_map_path(char	*path, t_so_long *game)
 {
 	if (ft_strncmp(path + (ft_strlen(path) - 4), ".ber", 4) != 0)
 		safe_exit("The map is not in .ber", game);

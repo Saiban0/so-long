@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 16:16:38 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/20 15:31:43 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/20 17:36:19 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ static void	monster_move_left(t_so_long *game, t_monster *monster)
 	monster->coords.y--;
 	game->map[temp.x][temp.y] = '0';
 	game->map[monster->coords.x][monster->coords.y] = 'M';
-	// (&game->monster_image->instances[monster->id])->x -= SO_LONG_UNIT;
 	(&game->monster_image.square->instances[monster->id])->x -= SO_LONG_UNIT;
 	(&game->monster_image.round->instances[monster->id])->x -= SO_LONG_UNIT;
 }
@@ -50,7 +49,6 @@ static void	monster_move_right(t_so_long *game, t_monster *monster)
 	monster->coords.y++;
 	game->map[temp.x][temp.y] = '0';
 	game->map[monster->coords.x][monster->coords.y] = 'M';
-	// (&game->monster_image->instances[monster->id])->x += SO_LONG_UNIT;
 	(&game->monster_image.square->instances[monster->id])->x += SO_LONG_UNIT;
 	(&game->monster_image.round->instances[monster->id])->x += SO_LONG_UNIT;
 }

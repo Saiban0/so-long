@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 20:11:31 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/20 15:30:27 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/20 17:17:03 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	collectible_collision(t_so_long *game)
 	}
 }
 
-static int	get_monster_id(t_so_long *game, t_coord coords)
+int	get_monster_id(t_so_long *game, t_coord coords)
 {
 	int	i;
 	int	j;

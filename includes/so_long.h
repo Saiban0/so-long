@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:05:32 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/20 15:33:38 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/20 17:37:53 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct s_so_long
 	int						player_health;
 	int						max_monsters;
 	bool					collected_all;
+	bool					can_reach_exit;
 	t_coord					player_coords;
 	t_monster				**monster_array;
 	mlx_image_t				*wall_image;
@@ -71,7 +72,7 @@ typedef struct s_so_long
 # define PLAYER_HEALTH 5
 
 /*   Parsing   */
-void		check_path(char	*path, t_so_long *game);
+void		check_map_path(char	*path, t_so_long *game);
 void		open_file(t_so_long *game, char *map_path);
 int			check_length(char	*line, size_t width);
 int			parse(int depth, t_so_long *game, int fd);
@@ -79,6 +80,10 @@ int			check_characters(t_so_long	*game);
 int			check_surrounded(t_so_long	*game);
 int			check_special_character_occurences(t_so_long *game);
 void		initialize_starting_variables(t_so_long *game);
+
+/*  Map pathing  */
+void		map_pathway(char	**map, int y, int x);
+void		post_pathway(char	**map, t_so_long *game);
 
 /*   Error Management   */
 void		safe_exit(char	*error_msg, t_so_long	*game);
@@ -103,6 +108,7 @@ t_monster	*create_new_monster(t_coord coords, int id);
 void		move_monsters(t_so_long *game, t_monster **array);
 void		switch_square_monster_to_round(t_so_long *game, int i);
 void		switch_round_monster_to_square(t_so_long *game, int i);
+int			get_monster_id(t_so_long *game, t_coord coords);
 void		kill_monster(t_so_long *game, t_coord coords);
 
 /*  Game loop  */

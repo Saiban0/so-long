@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 19:25:02 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/18 20:15:36 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/20 17:21:36 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,19 @@
 static	int	is_valid_move(t_so_long *game, int mvt_x, int mvt_y)
 {
 	t_coord	new_coords;
+	bool	square_monster;
 
 	new_coords.y = game->player_coords.y + mvt_y;
 	new_coords.x = game->player_coords.x + mvt_x;
+	square_monster = (&game->monster_image.square
+			->instances[get_monster_id(game, new_coords)])->enabled;
 	if (!(new_coords.x >= 1 && new_coords.x < game->map_height - 1)
 		|| !(new_coords.y >= 1 && new_coords.y < game->map_width - 1))
 		return (0);
 	if (game->map[new_coords.x][new_coords.y] == '1' ||
 	(game->map[new_coords.x][new_coords.y] == 'E' && game->collected_all != 1))
 		return (0);
-	if (game->map[new_coords.x][new_coords.y] == 'M')
+	if (game->map[new_coords.x][new_coords.y] == 'M' && square_monster)
 	{
 		game->player_health--;
 		kill_monster(game, new_coords);
