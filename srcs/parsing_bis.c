@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 15:38:55 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/20 17:30:34 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/20 21:21:42 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,9 @@ void	map_pathway(char	**map, int y, int x)
 static void	post_pathway_variable_test(int collectibles, t_so_long *game)
 {
 	if (collectibles != game->max_collectibles)
-		safe_exit("The player can't optain every collectible", game);
+		safe_exit("The player can't optain every collectible\n", game);
 	if (game->can_reach_exit == false)
-		safe_exit("The player can't reach the exit", game);
+		safe_exit("The player can't reach the exit\n", game);
 }
 
 void	post_pathway(char	**map, t_so_long *game)

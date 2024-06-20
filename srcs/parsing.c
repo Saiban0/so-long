@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 12:05:17 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/20 21:12:04 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/20 21:43:07 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	check_map_path(char	*path, t_so_long *game)
 {
 	if (ft_strncmp(path + (ft_strlen(path) - 4), ".ber", 4) != 0)
-		safe_exit("The map is not in .ber", game);
+		safe_exit("The map is not in .ber\n", game);
 }
 
 int	check_length(char	*line, size_t width)
@@ -33,8 +33,8 @@ int	parse(int depth, t_so_long *game, int fd)
 	if (line == NULL)
 	{
 		game->map = ft_calloc(depth + 1, sizeof(char *));
-		game->map[depth] = NULL;
 		game->map_height = depth;
+		game->map[depth] = NULL;
 		return (0);
 	}
 	if (depth == 0)
@@ -88,7 +88,7 @@ int	check_surrounded(t_so_long	*game)
 		else
 		{
 			if (game->map[i][0] != '1' ||
-				game->map[i][game->map_width - 1] != '\n')
+				game->map[i][game->map_width - 2] != '1')
 				return (1);
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 20:11:31 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/20 20:20:00 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/20 21:21:39 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	kill_monster(t_so_long *game, t_coord coords)
 
 	id = get_monster_id(game, coords);
 	if (id == -1)
-		safe_exit("Monster deletion failed", game);
+		safe_exit("Monster deletion failed\n", game);
 	game->map[coords.x][coords.y] = '0';
 	game->monster_array[id]->alive = 0;
 	(&game->monster_image.round->instances[id])->enabled = 0;

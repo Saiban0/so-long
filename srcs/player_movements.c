@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 19:25:02 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/20 18:40:11 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/20 21:21:39 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	player_move_up(t_so_long *game)
 	{
 		game->player_coords.x -= 1;
 		if (game->map[game->player_coords.x][game->player_coords.y] == 'E')
-			safe_exit("You won!", game);
+			safe_exit("You won!\n", game);
 		game->player_image->instances->y -= SO_LONG_UNIT;
 		game->movement_count++;
 		display_movement(game);
@@ -60,7 +60,7 @@ void	player_move_down(t_so_long *game)
 	{
 		game->player_coords.x += 1;
 		if (game->map[game->player_coords.x][game->player_coords.y] == 'E')
-			safe_exit("You won!", game);
+			safe_exit("You won!\n", game);
 		game->player_image->instances->y += SO_LONG_UNIT;
 		game->movement_count++;
 		display_movement(game);
@@ -73,7 +73,7 @@ void	player_move_left(t_so_long *game)
 	{
 		game->player_coords.y -= 1;
 		if (game->map[game->player_coords.x][game->player_coords.y] == 'E')
-			safe_exit("You won!", game);
+			safe_exit("You won\n!", game);
 		game->player_image->instances->x -= SO_LONG_UNIT;
 		game->movement_count++;
 		display_movement(game);
@@ -86,7 +86,7 @@ void	player_move_right(t_so_long *game)
 	{
 		game->player_coords.y += 1;
 		if (game->map[game->player_coords.x][game->player_coords.y] == 'E')
-			safe_exit("You won!", game);
+			safe_exit("You won!\n", game);
 		game->player_image->instances->x += SO_LONG_UNIT;
 		game->movement_count++;
 		display_movement(game);

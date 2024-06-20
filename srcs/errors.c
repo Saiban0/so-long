@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 12:12:16 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/18 17:22:49 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/20 21:21:37 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	free_monster_array(t_so_long *game, t_monster **matrix)
 void	safe_exit(char	*error_msg, t_so_long	*game)
 {
 	if (*error_msg != '\0')
-		ft_printf("%s\n", error_msg);
+		ft_putstr_fd(error_msg, 2);
 	if (game->map)
 	{
 		free_matrix(game->map);

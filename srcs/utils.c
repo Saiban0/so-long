@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 19:09:20 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/20 20:43:19 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/20 21:36:33 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,19 +38,21 @@ void	open_file(t_so_long *game, char *map_path)
 
 	fd = open(map_path, O_RDONLY);
 	if (!fd)
-		safe_exit("Failed to open file", game);
+		safe_exit("Failed to open file\n", game);
 	if (fd == -1)
-		safe_exit("File not found.", game);
+		safe_exit("File not found.\n", game);
+	game->map_height = 0;
+	game->map_width = 0;
 	if (parse(0, game, fd) == -1)
-		safe_exit("Map is not rectangular", game);
+		safe_exit("Map is not rectangular\n", game);
 	if (game->map_height < 4 && game->map_width < 4)
-		safe_exit("Map is too small.", game);
+		safe_exit("Map is too small.\n", game);
 	if (check_characters(game) == 1)
-		safe_exit("Characters in map not defined", game);
+		safe_exit("Characters in map not defined\n", game);
 	if (check_surrounded(game) == 1)
-		safe_exit("Map is not entirely surrounded by walls", game);
+		safe_exit("Map is not entirely surrounded by walls\n", game);
 	if (check_special_character_occurences(game))
-		safe_exit("Map must have only one player and one exit", game);
+		safe_exit("Map must have only one player and one exit\n", game);
 }
 
 static void	initialize_map_variables(t_so_long *game)
@@ -79,7 +81,7 @@ static void	initialize_map_variables(t_so_long *game)
 		i++;
 	}
 	if (game->max_collectibles < 1)
-		safe_exit("Map must have at least 1 collectible", game);
+		safe_exit("Map must have at least 1 collectible\n", game);
 }
 
 static void	initialize_monster_array(t_so_long *game)
