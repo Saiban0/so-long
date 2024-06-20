@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 19:09:20 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/20 20:19:12 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/20 20:43:19 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ void	open_file(t_so_long *game, char *map_path)
 
 	fd = open(map_path, O_RDONLY);
 	if (!fd)
+		safe_exit("Failed to open file", game);
+	if (fd == -1)
 		safe_exit("File not found.", game);
 	if (parse(0, game, fd) == -1)
 		safe_exit("Map is not rectangular", game);
