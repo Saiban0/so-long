@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 12:05:17 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/20 20:32:18 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/20 21:12:04 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ void	check_map_path(char	*path, t_so_long *game)
 
 int	check_length(char	*line, size_t width)
 {
-	if (!ft_strchr(line, '\n') && ft_strlen(line) == width)
-		return (1);
-	else if (ft_strlen(line) - 1 == width)
+	if (ft_strlen(line) == width)
 		return (1);
 	return (0);
 }
@@ -83,13 +81,14 @@ int	check_surrounded(t_so_long	*game)
 		{
 			j = -1;
 			while (game->map[i][++j])
-				if (game->map[i][j] != '1')
+				if ((game->map[i][j] != '1' && j != game->map_width - 1)
+				|| game->map[i][game->map_width - 1] != '\n')
 					return (1);
 		}
 		else
 		{
 			if (game->map[i][0] != '1' ||
-				game->map[i][game->map_width - 1] != '1')
+				game->map[i][game->map_width - 1] != '\n')
 				return (1);
 		}
 	}
