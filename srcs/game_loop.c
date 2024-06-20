@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 20:11:31 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/19 18:59:49 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/20 15:30:27 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	game_loop(t_so_long *game)
 		game->collected_all = 1;
 	if (game->player_health < 1)
 		safe_exit("YOU DIED\n", game);
-	if (game->ticks % 60 == 0)
+	if (game->ticks % 45 == 0)
 		move_monsters(game, game->monster_array);
 	game->ticks++;
 }
@@ -74,6 +74,6 @@ void	kill_monster(t_so_long *game, t_coord coords)
 		safe_exit("Monster deletion failed", game);
 	game->map[coords.x][coords.y] = '0';
 	game->monster_array[id]->alive = 0;
-	// (&game->monster_image.round->instances[id])->enabled = 0;
-	// (&game->monster_image.square->instances[id])->enabled = 0;
+	(&game->monster_image.round->instances[id])->enabled = 0;
+	(&game->monster_image.square->instances[id])->enabled = 0;
 }

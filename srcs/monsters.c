@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 16:16:38 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/19 19:02:52 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/20 15:31:43 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ static void	monster_move_left(t_so_long *game, t_monster *monster)
 	monster->coords.y--;
 	game->map[temp.x][temp.y] = '0';
 	game->map[monster->coords.x][monster->coords.y] = 'M';
-	(&game->monster_image->instances[monster->id])->x -= SO_LONG_UNIT;
-	// (&game->monster_image.square->instances[monster->id])->x -= SO_LONG_UNIT;
-	// (&game->monster_image.round->instances[monster->id])->x -= SO_LONG_UNIT;
+	// (&game->monster_image->instances[monster->id])->x -= SO_LONG_UNIT;
+	(&game->monster_image.square->instances[monster->id])->x -= SO_LONG_UNIT;
+	(&game->monster_image.round->instances[monster->id])->x -= SO_LONG_UNIT;
 }
 
 static void	monster_move_right(t_so_long *game, t_monster *monster)
@@ -50,9 +50,9 @@ static void	monster_move_right(t_so_long *game, t_monster *monster)
 	monster->coords.y++;
 	game->map[temp.x][temp.y] = '0';
 	game->map[monster->coords.x][monster->coords.y] = 'M';
-	(&game->monster_image->instances[monster->id])->x += SO_LONG_UNIT;
-	// (&game->monster_image.square->instances[monster->id])->x += SO_LONG_UNIT;
-	// (&game->monster_image.round->instances[monster->id])->x += SO_LONG_UNIT;
+	// (&game->monster_image->instances[monster->id])->x += SO_LONG_UNIT;
+	(&game->monster_image.square->instances[monster->id])->x += SO_LONG_UNIT;
+	(&game->monster_image.round->instances[monster->id])->x += SO_LONG_UNIT;
 }
 
 void	move_monsters(t_so_long *game, t_monster **array)
@@ -62,6 +62,10 @@ void	move_monsters(t_so_long *game, t_monster **array)
 	i = -1;
 	while (++i < game->max_monsters)
 	{
+		if ((&game->monster_image.round->instances[i])->enabled == 1)
+			switch_round_monster_to_square(game, i);
+		else if ((&game->monster_image.square->instances[i])->enabled == 1)
+			switch_square_monster_to_round(game, i);
 		if (ft_strcmp((*array[i]).direction, "left") == 0
 			&& is_valid_move(game, (*array[i]), -1))
 			monster_move_left(game, array[i]);
@@ -74,10 +78,6 @@ void	move_monsters(t_so_long *game, t_monster **array)
 		else if (ft_strcmp((*array[i]).direction, "right") == 0
 			&& !is_valid_move(game, (*array[i]), 1))
 			(*array[i]).direction = "left";
-		// if ((&game->monster_image.round->instances[i])->enabled)
-		// 	switch_round_monster_to_square(game, i);
-		// else if ((&game->monster_image.square->instances[i])->enabled)
-		// 	switch_square_monster_to_round(game, i);
 	}
 }
 

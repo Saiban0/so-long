@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 18:21:00 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/18 16:56:32 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/20 15:21:18 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,10 @@ void	textures_init(t_so_long *game)
 	game->player_image = mlx_texture_to_image(game->mlx_ptr, temp);
 	mlx_delete_texture(temp);
 	temp = mlx_load_png("sprite/monster.png");
-	game->monster_image = mlx_texture_to_image(game->mlx_ptr, temp);
+	game->monster_image.square = mlx_texture_to_image(game->mlx_ptr, temp);
+	mlx_delete_texture(temp);
+	temp = mlx_load_png("sprite/monster2.png");
+	game->monster_image.round = mlx_texture_to_image(game->mlx_ptr, temp);
 	mlx_delete_texture(temp);
 }
 
@@ -65,7 +68,8 @@ void	image_placement_bis(t_so_long *game, t_coord coords)
 	if (game->map[coords.x][coords.y] == 'M')
 	{
 		coords.z = 5;
-		load_image(game->mlx_ptr, coords, game->monster_image, 1);
+		load_image(game->mlx_ptr, coords, game->monster_image.square, 1);
+		load_image(game->mlx_ptr, coords, game->monster_image.round, 0);
 		coords.z = 0;
 		load_image(game->mlx_ptr, coords, game->floor_image, 1);
 	}
