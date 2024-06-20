@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 19:09:20 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/19 16:38:20 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/20 15:40:39 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ static void	initialize_map_variables(t_so_long *game)
 		}
 		i++;
 	}
+	if (game->max_collectibles < 1)
+		safe_exit("Map must have at least 1 collectible", game);
 }
 
 static void	initialize_monster_array(t_so_long *game)
