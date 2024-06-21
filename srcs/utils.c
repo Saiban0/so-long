@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 19:09:20 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/20 21:36:33 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/21 15:11:11 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	open_file(t_so_long *game, char *map_path)
 		safe_exit("Map must have only one player and one exit\n", game);
 }
 
-static void	initialize_map_variables(t_so_long *game)
+void	initialize_map_variables(t_so_long *game)
 {
 	int	i;
 	int	j;
@@ -84,7 +84,7 @@ static void	initialize_map_variables(t_so_long *game)
 		safe_exit("Map must have at least 1 collectible\n", game);
 }
 
-static void	initialize_monster_array(t_so_long *game)
+void	initialize_monster_array(t_so_long *game)
 {
 	int		cpt;
 	t_coord	temp;
@@ -112,22 +112,13 @@ static void	initialize_monster_array(t_so_long *game)
 
 void	initialize_starting_variables(t_so_long *game)
 {
-	mlx_image_t	*tmp;
-
-	tmp = NULL;
-	tmp = mlx_put_string(game->mlx_ptr, "Steps", 16, 2);
-	tmp = mlx_put_string(game->mlx_ptr, "Lives", 16, 18);
 	game->movement_count = 0;
 	game->player_health = PLAYER_HEALTH;
 	game->max_collectibles = 0;
 	game->collectibles = 0;
 	game->ticks = 0;
 	game->max_monsters = 0;
-	game->moves_str = mlx_put_string(game->mlx_ptr, " ", -10, -10);
-	game->lives_str = mlx_put_string(game->mlx_ptr, " ", -10, -10);
-	display_movement(game);
-	display_lives(game);
-	initialize_map_variables(game);
-	if (game->max_monsters)
-		initialize_monster_array(game);
+	game->map = NULL;
+	game->monster_array = NULL;
+	game->mlx_ptr = NULL;
 }

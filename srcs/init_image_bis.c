@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 18:29:21 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/20 22:23:56 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/21 15:11:05 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,20 @@ void	switch_round_monster_to_square(t_so_long *game, int i)
 void	close_hook(t_so_long *game)
 {
 	safe_exit("Clean exit\n", game);
+}
+
+void	pre_initialize_map_variables(t_so_long *game)
+{
+	mlx_image_t	*tmp;
+
+	tmp = NULL;
+	tmp = mlx_put_string(game->mlx_ptr, "Steps", 16, 2);
+	tmp = mlx_put_string(game->mlx_ptr, "Lives", 16, 18);
+	game->moves_str = mlx_put_string(game->mlx_ptr, " ", -10, -10);
+	game->lives_str = mlx_put_string(game->mlx_ptr, " ", -10, -10);
+	display_movement(game);
+	display_lives(game);
+	initialize_map_variables(game);
+	if (game->max_monsters)
+		initialize_monster_array(game);
 }

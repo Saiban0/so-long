@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:05:05 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/20 22:45:32 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/21 15:07:38 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,16 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	game = malloc(sizeof(t_so_long));
-	game->map = NULL;
-	game->monster_array = NULL;
-	game->mlx_ptr = NULL;
+	initialize_starting_variables(game);
 	check_map_path(argv[1], game);
 	open_file(game, argv[1]);
 	game->mlx_ptr = mlx_init((game->map_width - 1) * SO_LONG_UNIT,
 			(game->map_height) * SO_LONG_UNIT, "So-long", true);
+	if (!game->mlx_ptr)
+		safe_exit("mlx_init failed\n", game);
+	pre_initialize_map_variables(game);
 	textures_init(game);
 	images_placement(game);
-	initialize_starting_variables(game);
 	map_pathway(game->map, game->player_coords.x, game->player_coords.y);
 	post_pathway(game->map, game);
 	mlx_key_hook(game->mlx_ptr, &keyhook, game);

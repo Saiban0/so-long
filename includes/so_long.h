@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:05:32 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/20 22:23:36 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/21 15:08:12 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,9 @@ int			check_characters(t_so_long	*game);
 int			check_surrounded(t_so_long	*game);
 int			check_special_character_occurences(t_so_long *game);
 void		initialize_starting_variables(t_so_long *game);
+void		initialize_map_variables(t_so_long *game);
+void		initialize_monster_array(t_so_long *game);
+void		pre_initialize_map_variables(t_so_long *game);
 
 /*  Map pathing  */
 void		map_pathway(char	**map, int y, int x);
