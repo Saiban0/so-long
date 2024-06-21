@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 19:09:20 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/21 15:11:11 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/21 17:40:38 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,7 @@ void	initialize_starting_variables(t_so_long *game)
 	game->player_health = PLAYER_HEALTH;
 	game->max_collectibles = 0;
 	game->collectibles = 0;
+	game->collected_all = 0;
 	game->ticks = 0;
 	game->max_monsters = 0;
 	game->map = NULL;
