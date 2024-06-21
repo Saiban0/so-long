@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 18:29:21 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/21 17:00:55 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/21 17:18:03 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	pre_initialize_map_variables(t_so_long *game)
 	tmp = mlx_put_string(game->mlx_ptr, "Steps", 16, 2);
 	mlx_set_instance_depth(tmp->instances, 15);
 	tmp = mlx_put_string(game->mlx_ptr, "Lives", 16, 18);
-	mlx_set_instance_depth(tmp->instances, 15);
+	mlx_set_instance_depth(tmp->instances, 14);
 	game->moves_str = mlx_put_string(game->mlx_ptr, " ", -10, -10);
 	game->lives_str = mlx_put_string(game->mlx_ptr, " ", -10, -10);
 	display_movement(game);

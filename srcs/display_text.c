@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 17:51:56 by bchedru           #+#    #+#             */
-/*   Updated: 2024/06/21 17:00:11 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/06/21 17:17:23 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ void	display_lives(t_so_long *game)
 	mlx_delete_image(game->mlx_ptr, game->lives_str);
 	nbr = ft_itoa(game->player_health);
 	game->lives_str = mlx_put_string(game->mlx_ptr, nbr, 72, 18);
-	mlx_set_instance_depth(game->lives_str->instances, 15);
+	mlx_set_instance_depth(game->lives_str->instances, 14);
 	free(nbr);
 }
